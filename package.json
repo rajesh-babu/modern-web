@@ -26,7 +26,7 @@
    "modern-web-ui-core": "git://github.com/rajesh-babu/modern-web-framework.git#develop"
   },
   "buildConfig": {
-     "basePath": ".node_modules/modern-web-ui-core/",
+     "basePath": "./node_modules/modern-web-ui-core/",
 	 "destPath": "./build/assets/",
 	  "globalCSS": {
       "outputFile": "modern-global.css",
