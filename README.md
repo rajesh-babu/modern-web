@@ -1,4 +1,4 @@
-# modern-web-framwork
+# Modern-web-framework
 
 This is a framework created to demonstrate the modern website development with productivity work flow using NodeJS, Gulp, Bootstarp, SASS and jQuery.
 
