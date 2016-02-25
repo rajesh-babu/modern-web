@@ -1,5 +1,5 @@
 {
-  "name": "modern-web-framework",
+  "name": "modern-web",
   "version": "0.0.1",
   "private": true,
   "description": "Modern Website using NodeJS, Gulp, jQuery, Bootstrap, requireJS and SASS",
