@@ -3,6 +3,7 @@
 // Configuration
 var pkg = require('./package.json');
 var config = pkg.buildConfig;
+var siteData = {};
 
 // References
 var gulp = require('gulp');
@@ -10,12 +11,16 @@ var gulpSequence = require('gulp-sequence');
 var del = require('del');
 var path = require("path");
 var merge = require('merge-stream');
+var jeditor = require('gulp-json-editor');
+var extend = require('node.extend');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var gulpHeader = require('gulp-header');
 var rjs = require('requirejs');
 var sass = require('gulp-sass');
 var flatten = require('gulp-flatten');
+var mustache = require('./node_modules/modern-web-ui-core/modern-mustache-components');
+var rename = require('gulp-rename');
 
 // When session starts
 gulp.task('default', function(cb) {
@@ -25,8 +30,7 @@ gulp.task('default', function(cb) {
 // Default
 gulp.task('build', function(cb){
   gulpSequence(
-    ['clean-all'],
-	['build-assets'],
+    ['clean-all'], ['build-html', 'build-assets'],
     ['build-css', 'build-header-js', 'build-footer-js'],
     cb);
 });
@@ -43,6 +47,34 @@ gulp.task('build-deploy', function(cb){
 
 // Clean up tasks
 gulp.task('clean-all', function(cb) { del(['./build/**/*.*'], cb); });
+
+
+// Create JSON
+gulp.task('build-json', function() {
+  // Remove json data from cache if found and reload
+  siteData.pages = {};
+  return gulp.src('./src/data/*.json')
+    .pipe(jeditor(function(json){
+      extend(true,siteData.pages,json);
+      return json;
+    }));
+});
+
+// Create html
+gulp.task('build-html', ['build-json'], function (cb) {
+	var pageInfo,streams=[];
+	var opts = {
+		assetsHandler: function(){}
+	};
+	for (var p in siteData.pages) {
+		pageInfo = extend(true,{},siteData.site,siteData.pages[p]);
+		streams.push(gulp.src("./src/html/templates/" + pageInfo.template)
+			.pipe(mustache(pageInfo,opts))
+			.pipe(rename(pageInfo.url))
+			.pipe(gulp.dest('./build')));
+	}
+	return merge(streams);
+});
 
 // Copy assets
 gulp.task('build-assets', function() {
