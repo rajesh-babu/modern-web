@@ -4,6 +4,17 @@
     "template": "form-search.mustache",
     "url": "form-search.html",
     "heading-title": "Form Search-Test",
+    "my-modern-head":{
+      "_type": "../modern-web-ui-head",
+      "keywords": "Search",
+      "description": "Seach description",
+      "author": "Author Name",
+      "pageSpecificCSS": "",
+      "pageSpecificScripts": ""
+    },
+    "my-modern-header":{
+      "_type": "../modern-web-ui-header"
+    },
     "example-form-search": {
       "_type": "../modern-web-ui-form-search",
       "style": "page",

@@ -49,7 +49,9 @@
       "patterns": [
         [
           "modern-web-vendor-modernizr/assets/js/modernizr.js",
-          "modern-web-vendor-jquery/assets/js/jquery.min.js"
+          "modern-web-vendor-jquery/assets/js/jquery.min.js",		        
+          "modern-web-vendor-bootstrap/assets/js/bootstrap.min.js"
+										
         ]
       ]
     },

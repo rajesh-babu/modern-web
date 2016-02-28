@@ -19,12 +19,41 @@ var gulpHeader = require('gulp-header');
 var rjs = require('requirejs');
 var sass = require('gulp-sass');
 var flatten = require('gulp-flatten');
+var browserSync = require('browser-sync');
 var mustache = require('./node_modules/modern-web-ui-core/modern-mustache-components');
 var rename = require('gulp-rename');
 
+// Default
+gulp.task("default",["session-start"], function(){
+
+  // Live recompiling
+  gulp.watch(['./src/data/*.json'], { interval: 500 }, function(){
+    gulpSequence('build-html', browserSync.reload);
+  });
+  gulp.watch(['./src/html/**/*.mustache',
+    './node_modules/modern-web-ui-core/**/*.{mustache,json}'], { interval: 500 },
+    ['build-html', browserSync.reload]);
+  gulp.watch('./node_modules/modern-web-ui-core/**/*.scss', { interval: 500 },
+    ['build-css', browserSync.reload]);
+  gulp.watch('./node_modules/modern-web-ui-core/**/*.js', { interval: 500 },
+    ['build-footer-js', browserSync.reload]);
+});
+
 // When session starts
-gulp.task('default', function(cb) {
-  gulpSequence('build', cb);
+gulp.task("session-start", function(cb) {
+	gulpSequence('build', 'browser-sync', cb);
+});
+
+// Browser-sync
+gulp.task('browser-sync', function() {
+  return browserSync({
+    server: {
+      baseDir: './build',
+      routes: {
+        '/core': './node_modules/modern-web-ui-core/'
+      }
+    }
+  });
 });
 
 // Default
