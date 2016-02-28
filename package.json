@@ -39,7 +39,8 @@
       "patterns": [
         [
           "modern-web-vendor-bootstrap/assets/scss/_bootstrap.scss",
-          "modern-web-ui-form-search/assets/scss/*.scss"
+          "modern-web-ui-form-search/assets/scss/*.scss",
+          "modern-web-ui-footer/assets/scss/*.scss"
         ]
       ]
     },
