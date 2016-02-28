@@ -80,6 +80,7 @@ gulp.task('clean-all', function(cb) { del(['./build/**/*.*'], cb); });
 
 // Create JSON
 gulp.task('build-json', function() {
+
   // Remove json data from cache if found and reload
   siteData.pages = {};
   return gulp.src('./src/data/*.json')

@@ -1,5 +1,5 @@
 {
-  "form-search": {
+  "search": {
     "page-title": "test form search",
     "template": "form-search.mustache",
     "url": "form-search.html",
@@ -15,88 +15,12 @@
     "my-modern-header":{
       "_type": "modern-web-ui-header"
     },
-				"my-modern-footer":{
-      "_type": "modern-web-ui-footer"
-    },
     "example-form-search": {
       "_type": "modern-web-ui-form-search",
-      "style": "page",
-      "search-form": {
-        "eyebrow": "Support",
-        "heading": "Search",
-        "heading-level": "h1",
-        "description" : "Description text for search component is optional",
-        "id": "block-search-form",
-        "action": "search.html",
-        "input": {
-          "id": "block-search-input",
-          "form-group-style": "ix-input",
-          "placeholder": "search",
-          "label": "  ",
-          "button-submit": {
-            "aria-label": "Submit"
-          }
-        }
-      },
-      "search-results": {
-        "id": "block-search-results-group",
-        "full-bleed": true,
-        "color": "gray",
-        "group": true,
-        "group-heading": true,
-        "eyebrow": "Search Results",
-        "heading": "500,000 Results for “nasdaq”",
-        "featured-results": {
-          "items": [
-            {
-              "category": "Featured Links"
-            },
-            {
-              "text":"Nasdaq 100 Movers: AAL, MU",
-              "url":"http://tiaa.org"
-            },
-            {
-              "text":"Nasdaq Retreats as Apple Sales Shortfall Sparks Tech Selloff...",
-              "url":"http://tiaa.org"
-            },
-            {
-              "text":"Madison Square Garden to Transfer Stock Listings",
-              "url":"http://tiaa.org"
-            }
-          ]
-        },
-        "all-results": {
-          "lazy_links": 5,
-          "lazy_source": "assets/json/search-results.html?",
-          "items": [
-            {
-              "text":" Daniel Morris",
-              "url":"http://modern.org",
-              "summary":"Watch TIAA-CREF's Daniel Morris discuss the potential for the Nasdaq to reach 5,000 on CNBC..."
-            },
-            {
-              "text":"Plan Sponsor Reporting and Audit Guide",
-              "url":"http://modern.org",
-              "summary":"Beginning in October 2014, the unit values for the CREF Accounts and TIAA Real Estate Account are"
-            },
-            {
-              "text":"TIAA-CREF Life Funds Schedules of Investments",
-              "url":"http://modern.org",
-              "summary":"676,818 22,041 Merck & Co, Inc 1,266,917 75,975 Pfizer, Inc 2,643,170 6,164 * Qiagen NV (<strong>NAS</strong>"
-            },
-            {
-              "text":"TIAA-CREF - Watch TIAA-CREF's Daniel Morris",
-              "url":"http://modern.org",
-              "summary":"Watch TIAA-CREF's Daniel Morris discuss the potential for the Nasdaq to reach 5,000 on CNBC..."
-            },
-            {
-              "text":"Plan Sponsor Reporting and Audit Guide",
-              "url":"http://modern.org",
-              "summary":"Beginning in October 2014, the unit values for the CREF Accounts and Real Estate Account are"
-            }
-          ]
-        }
-      }
+      "style": "page"
+    },
+				"my-modern-footer":{
+      "_type": "modern-web-ui-footer"
     }
   }
 }
