@@ -1,0 +1,41 @@
+<div class="search-form-component {{style}} {{form-width}}" data-hide-on-results="{{hide-on-results}}">
+  <div class="sf-form">
+    {{# search-form }}
+    <div {{#id}}id="{{id}}"{{/id}} class="container">
+    <div class="form-component">
+      {{#heading}}
+      <{{heading-level}} class="fc-heading">{{{heading}}}</{{heading-level}}>
+      {{/heading}}
+      <form {{#id}}id="{{id}}-form"{{/id}} {{#name}}name="{{name}}"{{/name}} {{#action}}action="{{action}}"{{/action}} {{#method}}method="{{method}}"{{/method}}
+      {{{input}}}
+      {{#auto-complete}}
+      <div class="ac-results {{#search-results-icon}}search-icon{{/search-results-icon}}">
+        <p class="ac-instruction-text">{{#ac-instruction-text}}{{ac-instruction-text}}{{/ac-instruction-text}}</p>
+      </div>
+      {{/auto-complete}}
+      </form>
+    </div>
+  </div>
+  {{/ search-form }}
+  <div class="sf-results hide" aria-live="polite" aria-relevant="all">
+    {{# search-results}}
+    <div {{#id}}id="{{id}}"{{/id}} class="clearfix">
+    {{#group-heading}}
+    <div class="container">
+      <div class="group-heading">
+        {{#heading}}
+        <{{heading-level}} class="gh-heading">{{{heading}}}</{{heading-level}}>
+        {{/heading}}
+      </div>
+    </div>
+    {{/group-heading}}
+    <div class="container">
+      {{# all-results }}
+      <div class="all-results">
+        {{{ all-results }}}
+      </div>
+      {{/ all-results }}
+    </div>
+  </div>
+  {{/ search-results }}
+</div>

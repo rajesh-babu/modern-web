@@ -1,0 +1,230 @@
+.link-list {
+  padding: 60px 0;
+  width: 100%;
+  text-align: center;
+  .ll-heading {
+    @extend %h2;
+     margin-top: 25px;
+  }
+  .ll-eyebrow {
+    @extend %eyebrow;
+  }
+  .ll-description{
+    margin: 25px 0 0;
+  }
+  .ll-cta-container{
+    display: inline-block;
+    margin-top: 20px;
+  }
+  .ll-cta-wrapper{
+    margin-top: 20px;
+  }
+  .ll-ul {
+    padding: 0;
+    margin: 30px 0 0;
+    list-style-type: none;
+    text-align: left;
+  }
+  // Only apply gray background for panels with white group or component background
+  &.white {
+    .ll-item,
+     .ll-unlinked-item {
+      background-color: $tiaa-gray;
+    }
+  }
+  .ll-item,
+   .ll-item-category,
+   .ll-unlinked-item {
+    margin-top: 3px;
+    padding: 24px 60px 24px 20px;
+    display: block;
+    position: relative;
+    background: $tiaa-white;
+    color: $tiaa-black;
+  }
+  .ll-item-category {
+    @extend %eyebrow;
+  }
+  .ll-item,
+   .ll-unlinked-item {
+    @extend %h3;
+    &.ll-item {
+      &:hover, &:active {
+        color: $tiaa-blue-light;
+        .ll-summary {
+          color: $tiaa-black
+        }
+      }
+    }
+  }
+  .ll-unlinked-item {
+    padding-right: 20px;
+    .icon {
+      display: none !important;
+    }
+  }
+  .ll-item-summary {
+    @extend %description;
+    display: block;
+  }
+  .ll-datestamp{
+    display: block;
+    margin-bottom: 10px;
+    font-family: $font-family-franklin-demi;
+    font-size: $font-size-large;
+  }
+  .ll-text {
+    font-family: $font-family-lyon;
+    font-size: $font-size-large;
+  }
+  .ll-item-cta-wrapper {
+    .ll-item-cta-link {
+      @extend %description;
+      font-size:$font-size-copy;
+      > a{
+        color: $tiaa-black;
+        &:hover{
+          color: $tiaa-blue-light;
+        }
+      }
+    }
+    .ll-item-cta-link,
+     .ll-item-cta-btn {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+  .ll-pagination {
+    padding: 5px 0 9px;
+    font-family: $font-family-franklin-demi;
+    font-size: $font-size-copy;
+    text-align: center;
+    text-transform: uppercase;
+    > li {
+      display: inline-block;
+      padding: 15px;
+      > a {
+        color: $tiaa-black; 
+        .icon {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+        }
+        &:hover,
+         &:focus {
+          border: 0;
+          background: none;
+        }
+        &.disabled { 
+         color: $tiaa-gray-dark;
+        }
+      }
+    }
+  }
+  >:first-child{
+    margin-top: 0;
+  }
+}
+// Only apply gray background for panels with white group or component background
+.white .link-list .ll-item {
+  background-color: $tiaa-gray;
+}
+// media query used for mobile here since these properties
+// need to be nullified on larger breakpoints
+@media (max-width: $screen-xs-max) {
+  .link-list {
+    .ll-item {
+      .icon {
+        top: 50%;
+        margin-top: -9px;
+        font-size: $font-size-base;
+        position: absolute;
+        right: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .link-list {
+    .ll-item,
+     .ll-item-category,
+     .ll-unlinked-item {
+      padding: 24px 30px;
+    }
+    .ll-description,.ll-heading{
+      padding: 0 5%;
+    }
+    .ll-item {
+      .icon {
+        display: none;
+        margin-left: 10px;
+      }
+      &:hover {
+        color: $tiaa-blue-light;
+        .icon {
+          font-size: $font-size-base;
+          display: inline-block;
+          color: $tiaa-blue-light;
+        }
+        .ll-datestamp{
+          border-color: $tiaa-blue-light;
+        }
+      }
+      &:focus{
+        .icon {
+          font-size: $font-size-base;
+          display: inline-block;
+        }
+      }
+    }
+    .ll-datestamp{
+      display: table-cell;
+      width: 115px;
+      vertical-align: middle;
+      padding-right: 15px;
+      border-right: 3px solid $tiaa-black;
+    }
+    .ll-text{
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 15px;
+    }
+    .ll-unlinked-item-text{
+      width: 40%;
+      display: inline-block;
+    }
+    .ll-item-cta-wrapper {
+      float: right;
+      text-align: right;
+      paddin: 0px 0px 0 30px;
+      display: block;
+      width: 60%;
+      .ll-item-cta-btn,.ll-item-cta-link{
+        display: inline-block;
+        margin: 0;
+      }
+      .ll-item-cta-btn {
+        margin-left: 30px;
+        float: right;
+       
+      }
+    }
+  
+  }
+}
+@media (min-width: $screen-md-min) {
+  .link-list {
+    .ll-datestamp{
+      width: 135px;
+      font-size: $font-size-larger;
+    }
+    .ll-text{
+      font-size: $font-size-larger;
+    }
+    .ll-item-cta-wrapper .ll-item-cta-link {
+      font-size: $font-size-base;
+    }
+   
+  }
+}

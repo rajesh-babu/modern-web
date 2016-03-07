@@ -1,0 +1,17 @@
+{
+  "name": "modern-mustache-components",
+  "version": "0.0.1",
+  "description": "Generates HTML from mustache templates with support for embedded components",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "licence": "MIT",
+  "author": {
+    "name": "Rajesh"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+  }
+}

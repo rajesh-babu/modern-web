@@ -1,0 +1,134 @@
+{{!
+/**
+ * Link list is a stylized unordered list of links.
+ * Must be used within a group component
+ *
+ * @name link-list
+ * @param {string} [optional] id - div id
+ * @param {string} [optional] color - Background color. Options: Refer to color component for color options
+ * @param {string} [optional] eyebrow - eyebrow text
+ * @param {string} [optional] Heading level. Options: ["h1", "h2{default}", "h3", "h4"]
+ * @param {string} [optional] heading - heading Text
+ * @param {array} description - Description text. Can use an array{tiaa-web-ui-typography} for rich text or string of text
+ * @param {string} [optional] animation - default reveal revealUp
+ * @param {boolean} [optional] has-cta - if true, initiaties the code block to allow for cta.
+ * @param {array} [optional] cta - To support cta and plain text cta
+ * @param {array} items - List of link items, including link-title, category, target, text, datestamp, summary
+ * @param {string} [optional] category - Use category text instead of link
+ * @param {string} [optional] title - Title for links
+ * @param {string} target [optional] - Based on which either external link or icon-next arrow shows. Options ["", "_blank"]
+ * @param {string} text - text of the li item
+ * @param {string} url - url of the li link
+ * @param {string} [optional] datestamp - optional date stamp text to prefix the link
+ * @param {string} [optional] summary - optional text to follow title (text attribute) of the link
+ * @param {integer} [optional] lazy_links - the number of additional links that should be loaded each time the user scrolls to the bottom
+ * @param {string} [optional] lazy_source - name of the JSON folder with the additional link data
+ * @example
+ "products-list": {
+    "_type": "modern-web-ui-link-list",
+    "heading" : "All Products",
+    "items" :[
+      {
+        "text": "Living in Retirement",
+        "url": "http://www.google.com"
+      },
+      {
+        "text": "Planning for Retirement",
+        "url": "http://www.google.com",
+        "target": "_blank"
+      }
+    ]
+  }
+*/
+}}
+<div {{#id}}id="{{id}}"{{/id}} class="container">
+  <div class="link-list {{color}}">
+    {{#eyebrow}}
+    <div class="ll-eyebrow {{animation}}">{{{eyebrow}}}</div>
+    {{/eyebrow}}
+    {{#heading}}
+    <{{heading-level}} class="ll-heading {{animation}}">{{{heading}}}</{{heading-level}}>
+    {{/heading}}
+    {{#description}}
+    <div class="ll-description {{animation}}">{{{.}}}</div>
+    {{/description}}
+    {{#has-cta}}
+    <div class="ll-cta-container">
+      {{#cta}}
+      <div class="ll-cta-wrapper {{animation}}">
+        {{{.}}}
+      </div>
+      {{/cta}}
+    </div>
+    {{/has-cta}}
+    <ul class="ll-ul" {{#lazy_links}}data-lazy="{{lazy_links}}"{{/lazy_links}} {{#lazy_source}}data-source="{{lazy_source}}"{{/lazy_source}}>
+      {{#items}}
+      <li class="{{animation}} {{#item-cta}}has-cta{{/item-cta}} {{# no-title-link }} ll-unlinked-item{{/ no-title-link}}">
+        {{#category}}
+        <span class="ll-item-category">{{{category}}}</span>
+        {{/category}}
+        {{^category}}
+
+        {{# no-title-link }}<span class="ll-unlinked-item-text">{{/ no-title-link}}
+        {{^ no-title-link}}<a href="{{url}}" class="ll-item" {{#target}}target="{{target}}"{{/target}} {{#title}}title="{{title}}"{{/title}}{{^title}}{{#target}}title="Opens in new window"{{/target}}{{#modal}}title="Opens dialog"{{/modal}}{{/title}} {{#modal}}data-toggle="modal" data-target="{{url}}"{{/modal}}>{{/ no-title-link}}
+
+        {{#datestamp}}<span class="ll-datestamp">{{{datestamp}}}</span>{{/datestamp}}
+        {{#datestamp}}<span class="ll-text">{{/datestamp}}{{{text}}}
+        {{{icon}}}
+        {{#datestamp}}</span>{{/datestamp}}{{#summary}}<span class="ll-item-summary">{{{summary}}}</span>{{/summary}}
+
+        {{^ no-title-link}}</a>{{/ no-title-link}}
+        {{# no-title-link }}</span>{{/ no-title-link}}
+
+         {{#item-cta}}
+        <span class="ll-item-cta-wrapper">
+          {{#item-cta-button}}
+          <span class="ll-item-cta-btn">
+            {{{.}}}
+          </span>
+          {{/item-cta-button}}
+          {{#item-cta-link}}
+          <span class="ll-item-cta-link">
+            {{{.}}}
+          </span>
+          {{/item-cta-link}}
+        </span>
+        {{/item-cta}}
+
+
+        {{/category}}
+      </li>
+      {{/items}}
+
+      <!-- Template for replacement -->
+      <script id="link-list-template" type="text/x-handlebars-template">
+      ((#each this))
+      <li class="{{animation}}">
+        <a href="((url))" class="ll-item" ((#if target))target="((target))"((/if)) ((#if title))title="((title))"((else))((#if target))title="Opens in new window"((/if))((#if modal))title="Opens dialog"((/if))((/if)) ((#if modal))data-toggle="modal" data-target="((url))"((/if))>
+        ((#if datestamp))<span class="ll-datestamp">(((datestamp)))</span>((/if))
+        ((#if datestamp))<span class="ll-text">((/if))
+        (((text)))
+        ((#if icon))<span class="icon ((icon))"></span>((/if))
+        ((#if datestamp))</span>((/if))
+        ((#if summary))<span class="ll-item-summary">(((summary)))</span>((/if))</a>
+      </li>
+      ((/each))
+      </script>
+    </ul>
+
+    {{#pagination}}
+    <ul class="nav ll-pagination" role="tablist">
+      <li role="presentation" class="pages-previous"><a href="#{{id}}-previous" role="tab" class="no-scroll"{{#previous-label}} aria-label="{{previous-label}}"{{/previous-label}}>
+        {{{previous-icon}}}
+        {{#previous-text}}<span class="text">{{{previous-text}}}</span>{{/previous-text}}
+      </a></li>
+      {{#summary}}<li role="presentation" class="pages-summary">{{summary}}</li>{{/summary}}
+      <li role="presentation" class="pages-next"><a href="#{{id}}-next" role="tab" class="no-scroll"{{#next-label}} aria-label="{{next-label}}"{{/next-label}}>
+        {{#next-text}}<span class="text">{{{next-text}}}</span>{{/next-text}}
+        {{{next-icon}}}
+      </a></li>
+    </ul>
+    {{/pagination}}
+  </div>
+
+</div>

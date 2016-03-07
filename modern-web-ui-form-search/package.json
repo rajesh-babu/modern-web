@@ -1,0 +1,68 @@
+{
+  "name": "modern-web-ui-form-search",
+  "version": "2.0.0",
+  "description": "Creates the standard Modern modular search form",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "keywords": [
+    "ui",
+    "form",
+    "search"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Rajesh"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  },
+  "component": {
+    "templates": {
+      "mustache": "templates/modern-web-ui-form-search.mustache"
+    },
+    "attributes": {
+      "id": {
+        "dataType": "String",
+        "value": ""
+      },
+      "style": {
+        "dataType": "String",
+        "value": "menu"
+      },
+      "form-width": {
+        "dataType": "String",
+        "value": ""
+      },
+      "hide-on-results": {
+        "dataType": "String",
+        "value": ""
+      },
+      "search-form": {
+								"id": "searchID",
+        "heading": "Search",     
+        "heading-level": "h2",
+        "name": "searchName",
+								"method" : "GET",
+        "action": "search-results.json",
+        "input": {
+          "_type": "modern-web-ui-form-input",
+          "input-type": "search",
+          "label": "",
+          "aria-label": "Enter the term you'd like to search for",
+          "placeholder": "Search"
+        }
+      },
+      "search-results": {
+        "heading-level": "h2",
+								"all-results" :{
+          "_type": "modern-web-ui-link-list",
+          "id": "search-results-all",
+          "items": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "name": "modern-web-ui-form-input",
+  "version": "1.0.0",
+  "description": "This is a template that can be used to create new form-input",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "keywords": [
+    "ui",
+    "form-input"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Rajesh"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  },
+  "component": {
+    "templates": {
+      "mustache": "templates/modern-web-ui-form-input.mustache"
+    },
+    "attributes": {
+      "id": {
+        "dataType": "String",
+        "value": ""
+      },
+      "form-group-style": {
+        "dataType": "String",
+        "value": ""
+      },
+      "label": {
+        "dataType": "String",
+        "value": ""
+      },
+      "input-type-textbox":{
+        "dataType": "Boolean",
+        "value": true
+      },
+      "input-type-radio":{
+        "dataType": "Boolean",
+        "value": false
+      },
+      "input-type-checkbox":{
+        "dataType": "Boolean",
+        "value": false
+      },
+      "label-below":{
+        "dataType": "Boolean",
+        "value": true
+      },
+      "input-type-textarea":{
+        "dataType": "Boolean",
+        "value": false
+      },
+      "input-type": {
+        "dataType": "String",
+        "value": "text"
+      },
+      "aria-label": {
+        "dataType": "String",
+        "value": ""
+      },
+      "aria-labelledby": {
+        "dataType": "String",
+        "value": ""
+      },
+      "placeholder": {
+        "dataType": "String",
+        "value": ""
+      },
+      "data-type": {
+        "dataType": "String",
+        "value": ""
+      },
+      "default-value": {
+        "dataType": "String",
+        "value": ""
+      },
+      "max-length": {
+        "dataType": "Number",
+        "value": ""
+      },
+      "min-length": {
+        "dataType": "Number",
+        "value": ""
+      },
+      "default-rows": {
+        "dataType": "Number",
+        "value": 4
+      },
+      "default-cols": {
+        "dataType": "Number",
+        "value": 40
+      },
+      "toggle-visibility": {
+        "dataType": "Boolean",
+        "value": false
+      },
+      "icon-before": {
+        "dataType": "Object",
+        "value": null
+      },
+      "button-clear": {
+        "dataType": "Object",
+        "value": null
+      },
+      "error": {
+        "dataType": "Object",
+        "value": null
+      },
+      "search-results-icon": {
+        "dataType": "Boolean",
+        "value": false
+      },
+      "data-validation": {
+        "dataType": "String",
+        "value": ""
+      }
+    }
+  }
+}

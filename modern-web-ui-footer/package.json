@@ -1,0 +1,32 @@
+{
+  "name": "modern-web-ui-footer",
+  "version": "1.0.0",
+  "description": "This is a template that can be used to create footer",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "keywords": [
+    "ui",
+    "header"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Rajesh"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  },
+  "component": {
+    "templates": {
+      "mustache": "templates/modern-web-ui-footer.mustache"
+    },
+    "attributes": {
+      "id": {
+        "dataType": "String",
+        "value": ""
+      }
+    }
+  }
+}

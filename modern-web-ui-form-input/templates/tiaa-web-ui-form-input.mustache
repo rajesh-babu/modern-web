@@ -1,0 +1,142 @@
+{{!
+/**
+ * Form input component
+ *
+ * @name input
+ * @memberOf ui:form-input
+ * @type template
+ * @param {string} id - Used to populate the main component ID.
+ * @param {boolean}[optional] form-group-style - ix-input .
+ * @param {string} [optional] label - label text.
+ * @param {string} [optional] placeholder - placeholder text
+ * @param {string} [optional] field-prefix - field prefix $, %, etc
+ * @param {string} [optional] input-type - input type of the form
+ * @param {boolean} [optional] input-type-radio - If the input type is radio than need to set input-type-radio true   Options: [true, false{default}]
+ * @param {boolean} [optional] input-type-checkbox - If the input type is checkbox than need to set input-type-checkbox true Options: [true, false{default}]
+ * @param {boolean} [optional] input-type-textbox - If the input type is textbox than need to set input-type-textbox true Options: [true{default}, false]
+ * @param {boolean} [optional] input-type-textarea - If the input type is textarea than need to set input-type-textarea true Options: [true, false{default}]
+ * @param {boolean} [optional] label-below - If the label  in textarea need to come below or above text area Options: [true, false{default}]
+ * @param {string} [optional] aria-label - aria label text
+ * @param {string} [optional] aria-labelledby - Space-delimited list of IDs identifying labelling elements
+ * @param {string} [optional] data-type - data-type value. Options: ["numbers" (decimal non-negative), "natural", "ssn", "phone-us", "zip-us"]
+ * @param {string} [optional] data-validation - what validation methods to call on item. See form-validation component for complete list.
+ * @param {string} [optional] default-value - default-value for the input field
+ * @param {string} [optional] default-name - default-name for the input field
+ * @param {number} [optional] default-rows - default-rows for the textarea
+ * @param {number} [optional] default-cols - default-cols for the textarea
+ * @param {number} [optional] max-length - maximum number of characters
+ * @param {number} [optional] min-length - minimum number of characters
+ * @param {boolean} [optional] toggle-visibility - Include show/hide button. Options: [true, false{default}]
+ * @param {boolean} [optional] search-results-icon - Show icon next to results. Options: [true, false{default}]
+ * @param {object} [optional] button-clear - Include clear button.
+ * @param {object} [optional] error - Validation error. Attributes: active [true,false], icon{tiaa-web-ui-iconography}, text.
+ * @config
+"example-input-form-amount" :{
+  "_type" : "tiaa-web-ui-form-input",
+  "label": "How Much Do You Make in a Year",
+  "placeholder": "Yearly Income",
+  "fieldPrefix": "$",
+  "data-type": "natural",
+  "maxLength": 9
+  }
+"example-input-form-autocomplete" :{
+  "_type" : "tiaa-web-ui-form-input",
+  "placeholder": "Autocomplete",
+  "form-group-style": "ix-input",
+  "label": "Enter Keywords",
+  "id" : "form10",
+  "auto-complete":true,
+  "ac-instruction-text":"Search",
+  "search-results-icon" : true,
+  "min-length":3,
+  "data-source":"assets/json/data.json"
+}
+ */
+}}
+<div id="{{id}}-form-group" class="form-group input-form-group {{form-group-style}}{{#toggle-visibility}} toggle-visibility{{/toggle-visibility}}{{#icon-before}} has-icon-before{{/icon-before}}{{#button-clear}} button-clear{{/button-clear}}{{#error}}{{#active}} has-error{{/active}}{{/error}}">
+{{#input-type-textbox}}
+
+  <div class="input-group ui-widget">
+    {{#field-prefix}}
+    <div class="input-group-addon">{{{field-prefix}}}</div>
+    {{/field-prefix}}
+    {{#icon-before}}
+    <span class="icon-before">{{{icon-before}}}</span>
+    {{/icon-before}}
+    <input type="{{input-type}}" class="form-control {{#auto-complete}}autocomplete{{/auto-complete}}" id="{{id}}"
+      {{#max-length}} maxlength="{{max-length}}" {{/max-length}}
+      {{#min-length}} minlength="{{min-length}}" {{/min-length}}
+      {{#placeholder}} placeholder="{{placeholder}}"{{/placeholder}}
+      {{#aria-label}} aria-label="{{aria-label}}" {{/aria-label}}
+      {{^aria-label}} {{#aria-labelledby}}aria-labelledby="{{aria-labelledby}}" {{/aria-labelledby}}{{/aria-label}}
+      {{#data-type}} data-type="{{data-type}}" {{/data-type}}
+      {{#default-name}} name="{{default-name}}"{{/default-name}}
+      {{#default-value}} value="{{default-value}}"{{/default-value}}
+      {{#data-validation}} {{{data-validation}}}{{/data-validation}}
+      {{#auto-complete}} data-datasource="{{data-source}}"{{/auto-complete}}
+      {{#auto-complete}} {{#min-length}}data-minlen="{{min-length}}"{{/min-length}}{{/auto-complete}}/>
+    {{#auto-complete}}<div class="ac-results {{#search-results-icon}}search-icon{{/search-results-icon}}"><p class="ac-instruction-text">{{#ac-instruction-text}}{{ac-instruction-text}}{{/ac-instruction-text}}</p></div>{{/auto-complete}}
+    {{#toggle-visibility}}
+    <button type="button" class="btn btn-toggle-visibility" data-toggle="button"
+    data-toggle-on="Show"
+    data-toggle-on-aria="Show password as plain text. Note: this will visually expose your password on the screen."
+    data-toggle-off="Hide"
+    data-toggle-off-aria="Hide password"></button>
+    {{/toggle-visibility}}
+    {{#button-clear}}
+    <button type="button" class="btn btn-clear" aria-label="{{aria-label}}">{{{text}}}{{{icon}}}</button>
+    {{/button-clear}}
+  </div>
+  {{#label}}<label id="{{id}}-label" class="field-label" for="{{id}}">{{label}}</label>{{/label}}
+  {{/input-type-textbox}}
+  {{#input-type-textarea}}
+  {{^label-below}}
+    {{#label}}<label id="{{id}}-label" class="field-label" for="{{id}}">{{label}}</label>{{/label}}
+  {{/label-below}}
+  <div class="input-group">
+    <textarea id="{{id}}" class="form-control"
+      {{#max-length}}maxlength="{{max-length}}" {{/max-length}}
+      {{#min-length}}minlength="{{min-length}}" {{/min-length}}
+      {{#default-rows}}rows="{{default-rows}}"{{/default-rows}}
+      {{#default-cols}}cols="{{default-cols}}"{{/default-cols}}
+      {{#default-name}}name="{{default-name}}"{{/default-name}}
+      {{#data-validation}}{{{data-validation}}}{{/data-validation}}
+      {{#aria-label}}aria-label="{{aria-label}}"{{/aria-label}}
+      {{^aria-label}}{{#aria-labelledby}}aria-labelledby="{{aria-labelledby}}"{{/aria-labelledby}}{{/aria-label}}
+      {{#placeholder}}placeholder="{{placeholder}}"{{/placeholder}}>{{default-value}}</textarea>
+  </div>
+  {{#label-below}}
+  {{#label}}<label id="{{id}}-label" class="field-label" for="{{id}}">{{label}}</label>{{/label}}
+  {{/label-below}}
+  {{/input-type-textarea}}
+  {{#input-type-radio}}
+  <input type="{{input-type}}" id="{{id}}" class="form-control"
+    {{#aria-labelledby}}aria-labelledby="{{aria-labelledby}}"{{/aria-labelledby}}
+    {{#default-name}}name="{{default-name}}"{{/default-name}}
+    {{#default-value}}value="{{default-value}}"{{/default-value}}
+    {{#data-validation}}{{{data-validation}}}{{/data-validation}} />
+  {{#label}}<label id="{{id}}-label" class="field-label-radio {{{label-heading}}}" for="{{id}}">{{label}}</label>{{/label}}
+  {{#sub-group}}
+    {{{.}}}
+  {{/sub-group}}
+  {{/input-type-radio}}
+  {{#input-type-checkbox}}
+  <input type="{{input-type}}" id="{{id}}" class="form-control"
+    {{#aria-labelledby}}aria-labelledby="{{aria-labelledby}}"{{/aria-labelledby}}
+    {{#default-name}}name="{{default-name}}"{{/default-name}}
+    {{#default-value}}value="{{default-value}}"{{/default-value}}
+    {{#data-validation}}{{{data-validation}}}{{/data-validation}} />
+  {{#label}}<label id="{{id}}-label" class="field-label-checkbox {{{label-heading}}}" for="{{id}}">{{label}}</label>{{/label}}
+  {{#sub-group}}
+    {{{.}}}
+  {{/sub-group}}
+  {{/input-type-checkbox}}
+  {{#error}}
+    <div class="alert-error">
+      <div class="alert">
+        {{{icon}}}
+        <span class="text">{{{text}}}</span>
+      </div>
+    </div>
+  {{/error}}
+</div>
