@@ -7,5 +7,5 @@ This is a framework created to demonstrate the modern website development with p
 2. Execute the command "npm install" to take latest files from repo
 
 #Setup required for this project:
-Node Version: 0.12.0
+Node Version: v4.3.2
 Git Version:1.9.5
