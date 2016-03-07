@@ -1,1 +1,0 @@
-console.log("F2 loaded");
