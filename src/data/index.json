@@ -5,7 +5,6 @@
     "url": "index.html",
     "heading-title": "List of Modern Web Framework components",
     "my-modern-head":{
-      "_type": "modern-web-ui-head",
       "keywords": "home",
       "description": "home description",
       "author": "Author Name",
