@@ -1,0 +1,13 @@
+{
+  "commons": {
+    "my-modern-head":{
+      "_type": "modern-web-ui-head"
+		},
+		"my-modern-header":{
+      "_type": "modern-web-ui-header"
+    },
+		"my-modern-footer":{
+      "_type": "modern-web-ui-footer"
+    }
+  }
+}
