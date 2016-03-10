@@ -5,7 +5,6 @@
     "url": "form-search.html",
     "heading-title": "Form Search-Test",
     "my-modern-head":{
-      "_type": "modern-web-ui-head",
       "keywords": "Search",
       "description": "Search description",
       "author": "Author Name",
