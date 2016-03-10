@@ -7,20 +7,14 @@
     "my-modern-head":{
       "_type": "modern-web-ui-head",
       "keywords": "Search",
-      "description": "Seach description",
+      "description": "Search description",
       "author": "Author Name",
       "pageSpecificCSS": "",
       "pageSpecificScripts": ""
     },
-    "my-modern-header":{
-      "_type": "modern-web-ui-header"
-    },
     "example-form-search": {
       "_type": "modern-web-ui-form-search",
       "style": "page"
-    },
-				"my-modern-footer":{
-      "_type": "modern-web-ui-footer"
     }
   }
 }
