@@ -11,12 +11,6 @@
       "author": "Author Name",
       "pageSpecificCSS": "",
       "pageSpecificScripts": ""
-    },
-    "my-modern-header":{
-      "_type": "modern-web-ui-header"
-    },
-		"my-modern-footer":{
-      "_type": "modern-web-ui-footer"
     }
   }
 }
