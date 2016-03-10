@@ -1,0 +1,22 @@
+{
+  "index": {
+    "page-title": "Welcome to Modern Web Framework",
+    "template": "index.mustache",
+    "url": "index.html",
+    "heading-title": "List of Modern Web Framework components",
+    "my-modern-head":{
+      "_type": "modern-web-ui-head",
+      "keywords": "home",
+      "description": "home description",
+      "author": "Author Name",
+      "pageSpecificCSS": "",
+      "pageSpecificScripts": ""
+    },
+    "my-modern-header":{
+      "_type": "modern-web-ui-header"
+    },
+		"my-modern-footer":{
+      "_type": "modern-web-ui-footer"
+    }
+  }
+}
