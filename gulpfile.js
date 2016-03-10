@@ -98,6 +98,7 @@ gulp.task('build-html', ['build-json'], function (cb) {
 	};
 	for (var p in siteData.pages) {
 		pageInfo = extend(true,{},siteData.site,siteData.pages[p]);
+		pageInfo = extend(true,{},pageInfo,siteData.pages["commons"]);
 		streams.push(gulp.src("./src/html/templates/" + pageInfo.template)
 			.pipe(mustache(pageInfo,opts))
 			.pipe(rename(pageInfo.url))
