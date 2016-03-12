@@ -1,0 +1,19 @@
+{
+  "ReactJS": {
+    "page-title": "ReactJS Example",
+    "template": "react-page.mustache",
+    "url": "react-page.html",
+    "heading-title": "ReactJS Example",
+    "my-modern-head":{
+      "keywords": "ReactJS",
+      "description": "ReactJS description",
+      "author": "Author Name",
+      "pageSpecificCSS": "",
+      "pageSpecificScripts": ""
+    },
+    "example-reactJS-page": {
+      "_type": "modern-web-ui-reactJS-page",
+      "style": "page"
+    }
+  }
+}

@@ -18,6 +18,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var gulpHeader = require('gulp-header');
 var rjs = require('requirejs');
 var sass = require('gulp-sass');
+var server = require('gulp-express');
 var flatten = require('gulp-flatten');
 var browserSync = require('browser-sync');
 var mustache = require('./node_modules/modern-web-ui-core/modern-mustache-components');
@@ -41,7 +42,11 @@ gulp.task("default",["session-start"], function(){
 
 // When session starts
 gulp.task("session-start", function(cb) {
-	gulpSequence('build', 'browser-sync', cb);
+	gulpSequence('build', 'browser-sync', 'server', cb);
+});
+
+gulp.task('server', function(){
+  server.run(['appServer.js']);
 });
 
 // Browser-sync
