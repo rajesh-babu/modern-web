@@ -28,7 +28,7 @@
     "through2": "^1.1.1"
   },
   "dependencies": {
-    "modern-web-ui-core": "git://github.com/rajesh-babu/modern-web-framework.git#develop"
+    "modern-web-ui-core": "git://github.com/rajesh-babu/modern-web-components.git#develop-vanilla"
   },
   "buildConfig": {
     "basePath": "./node_modules/modern-web-ui-core/",
