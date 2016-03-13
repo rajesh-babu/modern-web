@@ -37,7 +37,7 @@ gulp.task("default",["session-start"], function(){
   gulp.watch('./node_modules/modern-web-ui-core/**/*.scss', { interval: 500 },
     ['build-css', browserSync.reload]);
   gulp.watch('./node_modules/modern-web-ui-core/**/*.js', { interval: 500 },
-    ['build-footer-js', browserSync.reload]);
+    ['build-footer-js', 'build-react-components-js', browserSync.reload]);
 });
 
 // When session starts
@@ -65,7 +65,7 @@ gulp.task('browser-sync', function() {
 gulp.task('build', function(cb){
   gulpSequence(
     ['clean-all'], ['build-html', 'build-assets'],
-    ['build-css', 'build-header-js', 'build-footer-js'],
+    ['build-css', 'build-header-js', 'build-footer-js','build-react-components-js'],
     cb);
 });
 
@@ -183,6 +183,25 @@ gulp.task('build-css-deploy', function() {
 // Generate header JS. Header JS files should be minified in advance so only concat files together
 gulp.task('build-header-js', function() {
   var data = config.headerJS;
+  var patterns = data.patterns;
+  var streams = [];
+  for (var d=0;d<patterns.length;d++) {
+    streams.push(gulp.src(patterns[d], { cwd: path.resolve(config.basePath) }));
+  }
+  var d = new Date();
+  var headerComment = '/* Generated on: ' + d + ' */';
+  return merge(streams)
+    .pipe(concat(data.outputFile))
+    .pipe(sourcemaps.init())
+    //.pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulpHeader(headerComment))
+    .pipe(gulp.dest(config.destPath + data.dest));
+});
+
+// Generate React footer JS. Footer JS files should be minified in advance so only concat files together
+gulp.task('build-react-components-js', function() {
+  var data = config.reactComponentsJS;
   var patterns = data.patterns;
   var streams = [];
   for (var d=0;d<patterns.length;d++) {
