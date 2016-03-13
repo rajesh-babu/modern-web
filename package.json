@@ -30,7 +30,7 @@
     "through2": "^1.1.1"
   },
   "dependencies": {
-    "modern-web-ui-core": "git://github.com/rajesh-babu/modern-web-components.git#develop-vanilla"
+    "modern-web-ui-core": "git://github.com/rajesh-babu/modern-web-components.git#develop-reactJS"
   },
   "buildConfig": {
     "basePath": "./node_modules/modern-web-ui-core/",
@@ -54,10 +54,10 @@
           "modern-web-vendor-modernizr/assets/js/modernizr.js",
           "modern-web-vendor-jquery/assets/js/jquery.min.js",
           "modern-web-vendor-bootstrap/assets/js/bootstrap.min.js",
-										"modern-web-vendor-react/assets/js/react.js",
-										"modern-web-vendor-react/assets/js/react-dom.js",
-										"modern-web-vendor-babel/assets/js/browser.js",
-										"modern-web-vendor-marked/assets/js/marked.min.js"
+	  "modern-web-vendor-react/assets/js/react.js",
+	  "modern-web-vendor-react/assets/js/react-dom.js",
+	  "modern-web-vendor-babel/assets/js/browser.js",
+          "modern-web-vendor-marked/assets/js/marked.min.js"
         ]
       ]
     },
@@ -67,7 +67,7 @@
       "almondFile": "modern-web-vendor-almond/assets/js/almond",
       "configFile": "modern-web-init/assets/js/modern-web-init"
     },
-				"reactComponentsJS": {
+    "reactComponentsJS": {
       "outputFile": "modern-react-components.min.js",
       "dest": "js",
       "patterns": [
