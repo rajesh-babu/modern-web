@@ -7,11 +7,13 @@
   "devDependencies": {
     "browser-sync": "^2.2.1",
     "del": "^1.1.1",
+    "express": "^4.13.4",
     "fs-extra": "^0.18.0",
     "git": "^0.1.5",
     "glob": "^5.0.5",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
+    "gulp-express": "^0.3.5",
     "gulp-flatten": "0.0.4",
     "gulp-header": "^1.2.2",
     "gulp-json-editor": "^2.2.1",
@@ -51,7 +53,11 @@
         [
           "modern-web-vendor-modernizr/assets/js/modernizr.js",
           "modern-web-vendor-jquery/assets/js/jquery.min.js",
-          "modern-web-vendor-bootstrap/assets/js/bootstrap.min.js"
+          "modern-web-vendor-bootstrap/assets/js/bootstrap.min.js",
+										"modern-web-vendor-react/assets/js/react.js",
+										"modern-web-vendor-react/assets/js/react-dom.js",
+										"modern-web-vendor-babel/assets/js/browser.js",
+										"modern-web-vendor-marked/assets/js/marked.min.js"
         ]
       ]
     },
@@ -60,6 +66,15 @@
       "dest": "js",
       "almondFile": "modern-web-vendor-almond/assets/js/almond",
       "configFile": "modern-web-init/assets/js/modern-web-init"
+    },
+				"reactComponentsJS": {
+      "outputFile": "modern-react-components.min.js",
+      "dest": "js",
+      "patterns": [
+        [
+          "modern-web-ui-reactJS-page/assets/js/modern-web-ui-reactJS-page.js"
+        ]
+      ]
     },
     "assets": [
       {
